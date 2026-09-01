@@ -1,13 +1,34 @@
-<%- include("../partials/header") %>
-<div class="p-4 mb-4 bg-light rounded-3">
-  <h1>Bienvenido a Guitarra Fácil 🎸</h1>
-  <p class="lead">Sistema de gestión de clases de guitarra.</p>
-  <p>Usuario: <strong><%= usuario.nombre %> <%= usuario.apellido %></strong> · Rol: <strong><%= usuario.rol %></strong></p>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Bienvenido a Guitarra Fácil 🎸</h1>
+        <span class="badge bg-success fs-6">Versión 2.0 (Redesplegada)</span>
+    </div>
+    <p class="text-muted">Sistema de gestión de clases de guitarra actualizado con control dinámico.</p>
+    
+    <div class="row text-center">
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h5>Cursos activos</h5>
+                <h3><%= totalCursos %></h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h5>Estudiantes</h5>
+                <h3><%= totalEstudiantes %></h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h5>Profesores</h5>
+                <h3><%= totalProfesores %></h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-3 shadow-sm">
+                <h5>Matrículas activas</h5>
+                <h3><%= totalMatriculas %></h3>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row g-3">
-  <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Cursos activos</h6><h2><%= cursos %></h2></div></div></div>
-  <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Estudiantes</h6><h2><%= estudiantes %></h2></div></div></div>
-  <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Profesores</h6><h2><%= profesores %></h2></div></div></div>
-  <div class="col-md-3"><div class="card stat-card"><div class="card-body"><h6>Matrículas activas</h6><h2><%= matriculas %></h2></div></div></div>
-</div>
-<%- include("../partials/footer") %>
