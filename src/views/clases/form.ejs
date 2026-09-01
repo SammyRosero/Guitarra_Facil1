@@ -1,0 +1,11 @@
+<%- include("../partials/header") %>
+<h2>Programar clase</h2>
+<% if(error){ %><div class="alert alert-danger"><%=error%></div><% } %>
+<form method="post" action="/clases" class="card p-4">
+<label>Curso</label><select class="form-select mb-3" name="curso" required><% cursos.forEach(c=>{ %><option value="<%=c._id%>"><%=c.nombre%></option><% }) %></select>
+<label>Profesor</label><select class="form-select mb-3" name="profesor" required><% profesores.forEach(p=>{ %><option value="<%=p._id%>"><%=p.usuario.nombre%> <%=p.usuario.apellido%></option><% }) %></select>
+<div class="row"><div class="col-md-6"><label>Fecha</label><input class="form-control mb-3" type="date" name="fecha" required></div><div class="col-md-6"><label>Hora</label><input class="form-control mb-3" type="time" name="hora" required></div></div>
+<label>Modalidad</label><select class="form-select mb-3" name="modalidad"><option>Presencial</option><option>Virtual</option></select>
+<button class="btn btn-dark">Guardar</button> <a class="btn btn-secondary" href="/clases">Cancelar</a>
+</form>
+<%- include("../partials/footer") %>

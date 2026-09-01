@@ -1,0 +1,9 @@
+<%- include("../partials/header") %>
+<h2>Nueva matrícula</h2>
+<% if(error){ %><div class="alert alert-danger"><%=error%></div><% } %>
+<form method="post" action="/matriculas" class="card p-4">
+<label>Estudiante</label><select class="form-select mb-3" name="estudiante" required><% estudiantes.forEach(e=>{ %><option value="<%=e._id%>"><%=e.usuario.nombre%> <%=e.usuario.apellido%></option><% }) %></select>
+<label>Curso</label><select class="form-select mb-3" name="curso" required><% cursos.forEach(c=>{ %><option value="<%=c._id%>"><%=c.nombre%> - <%=c.nivel%> - $<%=c.precio.toFixed(2)%></option><% }) %></select>
+<button class="btn btn-dark">Registrar matrícula</button> <a class="btn btn-secondary" href="/matriculas">Cancelar</a>
+</form>
+<%- include("../partials/footer") %>

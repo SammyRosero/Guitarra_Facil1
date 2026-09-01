@@ -1,0 +1,12 @@
+<%- include("../partials/header") %>
+<h2>Registrar estudiante</h2>
+<% if(error){ %><div class="alert alert-danger"><%=error%></div><% } %>
+<form method="post" action="/estudiantes" class="card p-4">
+<div class="row"><div class="col-md-6 mb-3"><label>Nombre</label><input class="form-control" name="nombre" required></div><div class="col-md-6 mb-3"><label>Apellido</label><input class="form-control" name="apellido" required></div></div>
+<label>Correo</label><input class="form-control mb-3" type="email" name="correo" required>
+<label>Contraseña</label><input class="form-control mb-3" type="password" name="password" required>
+<label>Nivel</label><select class="form-select mb-3" name="nivel"><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select>
+<label>Teléfono</label><input class="form-control mb-3" name="telefono">
+<button class="btn btn-dark">Guardar</button> <a class="btn btn-secondary" href="/estudiantes">Cancelar</a>
+</form>
+<%- include("../partials/footer") %>

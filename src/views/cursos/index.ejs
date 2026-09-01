@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Cursos de guitarra</h2>
+  <% if (usuario.rol === "administrador") { %><a class="btn btn-dark" href="/cursos/nuevo">+ Nuevo curso</a><% } %>
+</div>
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
+<thead><tr><th>Nombre</th><th>Nivel</th><th>Modalidad</th><th>Precio</th><th>Capacidad</th><th>Estado</th><% if(usuario.rol==="administrador"){%><th>Acciones</th><%}%></tr></thead>
+<tbody>
+<% cursos.forEach(c => { %>
+<tr>
+<td><strong><%= c.nombre %></strong><br><small><%= c.descripcion %></small></td>
+<td><%= c.nivel %></td><td><%= c.modalidad %></td><td>$<%= c.precio.toFixed(2) %></td><td><%= c.capacidad %></td>
+<td><%= c.estado ? "Activo" : "Inactivo" %></td>
+<% if(usuario.rol==="administrador"){%><td><a class="btn btn-sm btn-outline-primary" href="/cursos/<%= c._id %>/editar">Editar</a> <form class="d-inline" method="post" action="/cursos/<%= c._id %>/desactivar"><button class="btn btn-sm btn-outline-danger">Desactivar</button></form></td><%}%>
+</tr>
+<% }) %>
+</tbody></table></div>
+<%- include("../partials/footer") %>

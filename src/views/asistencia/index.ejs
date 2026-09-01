@@ -1,0 +1,6 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between mb-3"><h2>Asistencia</h2><a class="btn btn-dark" href="/asistencia/nueva">+ Registrar asistencia</a></div>
+<table class="table table-bordered"><thead><tr><th>Clase</th><th>Estudiante</th><th>Estado</th><th>Observación</th></tr></thead><tbody>
+<% asistencias.forEach(a=>{ %><tr><td><%=a.clase.curso.nombre%></td><td><%=a.estudiante.usuario.nombre%> <%=a.estudiante.usuario.apellido%></td><td><%=a.estado%></td><td><%=a.observacion||"-"%></td></tr><% }) %>
+</tbody></table>
+<%- include("../partials/footer") %>

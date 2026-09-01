@@ -1,0 +1,11 @@
+<%- include("../partials/header") %>
+<h2>Registrar asistencia</h2>
+<% if(error){ %><div class="alert alert-danger"><%=error%></div><% } %>
+<form method="post" action="/asistencia" class="card p-4">
+<label>Clase</label><select class="form-select mb-3" name="clase" required><% clases.forEach(c=>{ %><option value="<%=c._id%>"><%=c.curso.nombre%> - <%=c.fecha.toLocaleDateString()%> - <%=c.hora%></option><% }) %></select>
+<label>Estudiante</label><select class="form-select mb-3" name="estudiante" required><% estudiantes.forEach(e=>{ %><option value="<%=e._id%>"><%=e.usuario.nombre%> <%=e.usuario.apellido%></option><% }) %></select>
+<label>Estado</label><select class="form-select mb-3" name="estado"><option>Presente</option><option>Ausente</option><option>Justificado</option></select>
+<label>Observación</label><input class="form-control mb-3" name="observacion">
+<button class="btn btn-dark">Guardar</button> <a class="btn btn-secondary" href="/asistencia">Cancelar</a>
+</form>
+<%- include("../partials/footer") %>

@@ -1,0 +1,6 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between mb-3"><h2>Progreso académico</h2><%if(usuario.rol!=="estudiante"){%><a class="btn btn-dark" href="/progreso/nuevo">+ Registrar progreso</a><%}%></div>
+<table class="table table-bordered"><thead><tr><th>Estudiante</th><th>Curso</th><th>Fecha</th><th>Nivel</th><th>Observación</th></tr></thead><tbody>
+<% progresos.forEach(p=>{ %><tr><td><%=p.estudiante.usuario.nombre%> <%=p.estudiante.usuario.apellido%></td><td><%=p.curso.nombre%></td><td><%=p.fecha.toLocaleDateString()%></td><td><%=p.nivel%></td><td><%=p.observacion%></td></tr><% }) %>
+</tbody></table>
+<%- include("../partials/footer") %>

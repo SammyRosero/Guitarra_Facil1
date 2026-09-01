@@ -1,0 +1,6 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between mb-3"><h2>Clases programadas</h2><%if(usuario.rol==="administrador"){%><a class="btn btn-dark" href="/clases/nueva">+ Nueva clase</a><%}%></div>
+<table class="table table-bordered"><thead><tr><th>Curso</th><th>Profesor</th><th>Fecha</th><th>Hora</th><th>Modalidad</th><th>Estado</th></tr></thead><tbody>
+<% clases.forEach(c=>{ %><tr><td><%=c.curso.nombre%></td><td><%=c.profesor.usuario.nombre%> <%=c.profesor.usuario.apellido%></td><td><%=c.fecha.toLocaleDateString()%></td><td><%=c.hora%></td><td><%=c.modalidad%></td><td><%=c.estado%></td></tr><% }) %>
+</tbody></table>
+<%- include("../partials/footer") %>

@@ -1,0 +1,6 @@
+<%- include("../partials/header") %>
+<div class="d-flex justify-content-between mb-3"><h2>Profesores</h2><a class="btn btn-dark" href="/profesores/nuevo">+ Nuevo profesor</a></div>
+<table class="table table-bordered"><thead><tr><th>Nombre</th><th>Correo</th><th>Especialidad</th><th>Experiencia</th><th>Teléfono</th></tr></thead><tbody>
+<% profesores.forEach(p=>{ %><tr><td><%=p.usuario.nombre%> <%=p.usuario.apellido%></td><td><%=p.usuario.correo%></td><td><%=p.especialidad%></td><td><%=p.experiencia%> años</td><td><%=p.telefono||"-"%></td></tr><% }) %>
+</tbody></table>
+<%- include("../partials/footer") %>

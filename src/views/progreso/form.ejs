@@ -1,0 +1,11 @@
+<%- include("../partials/header") %>
+<h2>Registrar progreso</h2>
+<% if(error){ %><div class="alert alert-danger"><%=error%></div><% } %>
+<form method="post" action="/progreso" class="card p-4">
+<label>Estudiante</label><select class="form-select mb-3" name="estudiante" required><% estudiantes.forEach(e=>{ %><option value="<%=e._id%>"><%=e.usuario.nombre%> <%=e.usuario.apellido%></option><% }) %></select>
+<label>Curso</label><select class="form-select mb-3" name="curso" required><% cursos.forEach(c=>{ %><option value="<%=c._id%>"><%=c.nombre%></option><% }) %></select>
+<label>Nivel alcanzado</label><select class="form-select mb-3" name="nivel"><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select>
+<label>Observación</label><textarea class="form-control mb-3" name="observacion" required></textarea>
+<button class="btn btn-dark">Guardar</button> <a class="btn btn-secondary" href="/progreso">Cancelar</a>
+</form>
+<%- include("../partials/footer") %>
